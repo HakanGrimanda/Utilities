@@ -6,21 +6,27 @@ using System.Collections.Generic;
 [InitializeOnLoad]
 public static class TimeManager
 {
-    
     [MenuItem("Tools/Hakan Yuksel/Stop %&#8")]
-    private static void StopTime()
+    public static void StopTime()
     {
         Time.timeScale = 0;
     }
 
     [MenuItem("Tools/Hakan Yuksel/Slower %&#9")]
-    private static void MakeSlower()
+    public static void SlowDown()
     {
-        Time.timeScale -= 0.1f;
+        if (Time.timeScale - 0.1f < 0)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale -= 0.1f;
+        }
     }
 
     [MenuItem("Tools/Hakan Yuksel/Faster %&#0")]
-    private static void MakeFaster()
+    public static void SpeedUp()
     {
         Time.timeScale += 0.1f;
     }
